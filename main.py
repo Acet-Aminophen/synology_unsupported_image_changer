@@ -23,6 +23,8 @@ def is_animated(FilePath):
 
 for file in os.walk(file_path):
     for name in file[2]:
+        if "@eaDir" in file[0]:
+            continue
         if name.split(".")[-1] in file_types:
             org_path = file[0] + "/" + name
             backup_path = file_path + "/.before_changed/" + org_path[len(file_path) + 1:]
